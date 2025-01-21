@@ -10,18 +10,21 @@ actor AppRepository {
   private let baseURLString = "https://api.weatherapi.com/v1"
   
   func getWeatherDetails(forCity city: String) async -> CityWeatherModel? {
-    let request = makeGetWeatherForCityRequest(city: city)
+    guard let request = makeGetWeatherForCityRequest(city: city) else {
+      print("Error making request")
+      return nil
+    }
     
     do {
       let (data, _) = try await URLSession.shared.data(for: request)
       let decoder = JSONDecoder()
       let result = try decoder.decode(WeatherDetailDTO.self, from: data)
-      
-      var details: [String: String] = [:]
-      
-      details["Humidity"] = String(result.current.humidity.rounded()) + "%"
-      details["UV"] = String(result.current.uv.rounded()) + "\u{00B0}"
-      details["Feels Like"] = String(result.current.feelslike_c.rounded()) + "\u{00B0}"
+            
+      //Normally these details would be implemented in a different layer, but I included it here for timing reasons.
+      var details: [WeatherDetails] = []
+      details.append(WeatherDetails(header: "Humidity", body: String(result.current.humidity.rounded()) + "%"))
+      details.append(WeatherDetails(header: "UV", body: String(result.current.uv.rounded()) + "\u{00B0}"))
+      details.append(WeatherDetails(header: "Feels Like", body: String(result.current.feelslike_c.rounded()) + "\u{00B0}"))
       
       let temperature = String(result.current.temp_c.rounded())
       let urlForIcon: URL? = correctIconURL(result.current.condition.icon)
@@ -54,7 +57,6 @@ actor AppRepository {
   func getPersistedCity() -> PersistedCityModel? {
     if let city = UserDefaults.standard.string(forKey: Keys.cityName),
        let lastTemp = UserDefaults.standard.string(forKey: Keys.lastTemp) {
-      
       let icnURLStr = UserDefaults.standard.string(forKey: Keys.iconURL)
       var iconURL: URL? = nil
       
@@ -72,17 +74,27 @@ actor AppRepository {
     guard let weather = await self.getWeatherDetails(forCity: searchString) else {
       return []
     }
-    
+    //I was originally expecting to implement autocomplete functionality and showing a list, but the instructions did not mention this behavior
     return [
       weather
     ]
   }
   
-  func makeGetWeatherForCityRequest(city: String) -> URLRequest {
+  private func makeGetWeatherForCityRequest(city: String) -> URLRequest? {
     guard let apiKey = Bundle.main.object(forInfoDictionaryKey: "weather-api-key") as? String else {
-      fatalError("Missing api key")
+      fatalError("Missing api key. Config.xcconfig is required with a value for WEATHER_API_KEY")
     }
-    return URLRequest(url: URL(string: "\(baseURLString)/current.json?key=\(apiKey)&q=\(city)")!)
+    
+    guard let cityParam = city.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) else {
+      print("\(city) not formatted")
+      return nil
+    }
+    
+    guard let url = URL(string: "\(baseURLString)/current.json?key=\(apiKey)&q=\(cityParam)") else {
+      return nil
+    }
+    
+    return URLRequest(url: url)
   }
 
 }

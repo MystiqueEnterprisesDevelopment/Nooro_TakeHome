@@ -11,13 +11,7 @@ struct CityWeatherModel: Identifiable {
   let weatherIconURL: URL?
   let cityName: String
   let temperature: String
-  var weatherDetails: [String: String] = [:]
-  
-  func getWeatherDetails() -> [WeatherDetails] {
-    return weatherDetails.map { key, value in
-      return WeatherDetails(header: key, body: value)
-    }
-  }
+  var weatherDetails: [WeatherDetails] = []
 }
 
 struct CityWeatherDetailView: View {
@@ -63,7 +57,7 @@ struct CityWeatherDetailView: View {
   @ViewBuilder
   private var weatherDetails: some View {
     HStack(spacing: 16.0, content: {
-      ForEach(viewModel.getWeatherDetails()) { item in
+      ForEach(viewModel.weatherDetails) { item in
         VStack(alignment: .center, spacing: 16.0, content: {
           Text(item.header)
             .foregroundStyle(Color.gray)

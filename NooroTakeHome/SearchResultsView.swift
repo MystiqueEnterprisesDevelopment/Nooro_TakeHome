@@ -12,7 +12,7 @@ struct SearchResultItem: Identifiable {
 }
 
 struct SearchResultsView: View {
-  var eventHandler: SearchResultViewEventHandler
+  let eventHandler: SearchResultViewEventHandler
   @State var searchResults: [CityWeatherModel] = []
   
   var body: some View {
