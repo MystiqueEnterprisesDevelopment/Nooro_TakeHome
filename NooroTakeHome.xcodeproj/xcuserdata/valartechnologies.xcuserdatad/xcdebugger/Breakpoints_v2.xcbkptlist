@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Bucket
+   uuid = "9F4CB8C7-5547-4DD2-B555-4BDB8BDAACFD"
+   type = "1"
+   version = "2.0">
+   <Breakpoints>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "F2F92607-C757-43BD-86D3-47B4F0588107"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "NooroTakeHome/Repository.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "38"
+            endingLineNumber = "38"
+            landmarkName = "correctIconURL(_:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "F2F92607-C757-43BD-86D3-47B4F0588107 - 4ca689249d7e71de"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "NooroTakeHome.AppRepository.correctIconURL(Swift.String) -&gt; Swift.Optional&lt;Foundation.URL&gt;"
+                  moduleName = "NooroTakeHome"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/valartechnologies/workspace/ios_interviews/NooroTakeHome/NooroTakeHome/Repository.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "117"
+                  endingLineNumber = "117"
+                  offsetFromSymbolStart = "176">
+               </Location>
+               <Location
+                  uuid = "F2F92607-C757-43BD-86D3-47B4F0588107 - 4ca689249d7e71de"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "NooroTakeHome.AppRepository.correctIconURL(Swift.String) -&gt; Swift.Optional&lt;Foundation.URL&gt;"
+                  moduleName = "NooroTakeHome"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/valartechnologies/workspace/ios_interviews/NooroTakeHome/NooroTakeHome/Repository.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "117"
+                  endingLineNumber = "117"
+                  offsetFromSymbolStart = "172">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "7476A976-23A0-485A-94B0-8E493ADEF800"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "NooroTakeHome/Repository.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "43"
+            endingLineNumber = "43"
+            landmarkName = "correctIconURL(_:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "D79DB948-2B9D-46CB-9771-318EB4626F6B"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "NooroTakeHome/Repository.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "41"
+            endingLineNumber = "41"
+            landmarkName = "correctIconURL(_:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+   </Breakpoints>
+</Bucket>
